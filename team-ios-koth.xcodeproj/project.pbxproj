@@ -193,6 +193,7 @@
 				TargetAttributes = {
 					83B397051EC4DB2000EE22D5 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = RVX28FPJ5M;
 						ProvisioningStyle = Automatic;
 					};
 					83B397191EC4DB2000EE22D5 = {
@@ -414,6 +415,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RVX28FPJ5M;
 				INFOPLIST_FILE = "team-ios-koth/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dmke.team-ios-koth";
@@ -426,6 +428,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RVX28FPJ5M;
 				INFOPLIST_FILE = "team-ios-koth/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dmke.team-ios-koth";
@@ -507,6 +510,7 @@
 				83B397301EC4DB2000EE22D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		83B397311EC4DB2000EE22D5 /* Build configuration list for PBXNativeTarget "team-ios-kothTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +519,7 @@
 				83B397331EC4DB2000EE22D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		83B397341EC4DB2000EE22D5 /* Build configuration list for PBXNativeTarget "team-ios-kothUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +528,7 @@
 				83B397361EC4DB2000EE22D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
