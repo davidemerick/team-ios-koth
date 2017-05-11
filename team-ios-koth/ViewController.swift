@@ -19,7 +19,9 @@ class ViewController: UIViewController {
         
         // setup locationManager
         setupData()
+        // create instance of CLLocationManager
         locationManager = CLLocationManager()
+        
         locationManager?.delegate = self
         locationManager?.distanceFilter = kCLLocationAccuracyNearestTenMeters
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
@@ -28,8 +30,8 @@ class ViewController: UIViewController {
         
         //test setupData
         setupData()
-        //location manager set up
-//        locationManager.startMonitoring(for region: CLRegion)
+        // location manager set up
+        // locationManager.startMonitoring(for region: CLRegion)
     }
     
     override func didReceiveMemoryWarning() {
@@ -42,6 +44,7 @@ class ViewController: UIViewController {
 
 extension ViewController: CLLocationManagerDelegate {
     
+    // isMonitoringAvailable, if yes: create region. Then monitor region and print region
     func setupData() {
         if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self){
             let title = "Lorrenzillo's"
@@ -50,6 +53,8 @@ extension ViewController: CLLocationManagerDelegate {
             
             let region = CLCircularRegion(
                 center: CLLocationCoordinate2D(latitude: coordinate.latitude,longitude: coordinate.longitude),radius: regionRadius, identifier: title)
+            
+            // registers region in 'monitoredRegions' property
             locationManager?.startMonitoring(for: region)
             print(region)
             
@@ -70,6 +75,19 @@ extension ViewController: CLLocationManagerDelegate {
         }
     }
     
+    func createFence(startLocation: CLLocation) -> CLCircularRegion {
+        let ourRadius = 10.0
+        let ourString = "test_id"
+        let fence = CLCircularRegion(
+            center: startLocation.coordinate,
+            radius: ourRadius,
+            identifier: ourString)
+        
+        return fence
+    }
+    
+}
+
     
     
 //    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -89,7 +107,7 @@ extension ViewController: CLLocationManagerDelegate {
 //        }
 //    }
 //    
-}
+
 
 
 
