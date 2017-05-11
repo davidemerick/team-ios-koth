@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  team-ios-koth
 //
-//  Created by DE on 5/11/17.
+//  Created by DE, DG on 5/11/17.
 //  Copyright © 2017 DE. All rights reserved.
 //
 
