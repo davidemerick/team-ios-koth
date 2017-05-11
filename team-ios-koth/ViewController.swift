@@ -18,12 +18,18 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // setup locationManager
+        setupData()
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.distanceFilter = kCLLocationAccuracyNearestTenMeters
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
         
         locationManager?.requestWhenInUseAuthorization()
+        
+        //test setupData
+        setupData()
+        //location manager set up
+//        locationManager.startMonitoring(for region: CLRegion)
     }
     
     override func didReceiveMemoryWarning() {
@@ -45,12 +51,25 @@ extension ViewController: CLLocationManagerDelegate {
             let region = CLCircularRegion(
                 center: CLLocationCoordinate2D(latitude: coordinate.latitude,longitude: coordinate.longitude),radius: regionRadius, identifier: title)
             locationManager?.startMonitoring(for: region)
+            print(region)
+            
         }
     }
     
-    func startMonitoring(for region: CLRegion){
-        print ("")
+    
+    func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState,for region: CLRegion) {
+        if state == .inside {
+            print ("inside")
+        }
+        else if state == .outside {
+            print ("outside")
+        }
+        else if state == .unknown {
+            print("Unknown state for geofence")
+            return
+        }
     }
+    
     
     
 //    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
