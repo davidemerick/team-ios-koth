@@ -29,7 +29,6 @@ class ViewController: UIViewController {
         //test setupData
         setupData()
         //location manager set up
-//        locationManager.startMonitoring(for region: CLRegion)
     }
     
     override func didReceiveMemoryWarning() {
@@ -69,43 +68,4 @@ extension ViewController: CLLocationManagerDelegate {
             return
         }
     }
-    
-    
-    
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        if startLocation == nil {
-//            startLocation = locations.first
-//        } else {
-//            guard let latest = locations.first else { return }
-//            let distanceInMeters = startLocation?.distance(from: latest)
-//            print("distance in meters: \(String(describing: distanceInMeters!))")
-//        }
-//    }
-//    
-//     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-//        if status == .authorizedAlways || status == .authorizedWhenInUse {
-//            locationManager?.startUpdatingLocation()
-//            locationManager?.allowsBackgroundLocationUpdates = true
-//        }
-//    }
-//    
 }
-
-
-
-//    
-//    func createFence(startLocation: CLLocation) -> CLCircularRegion {
-//        let fence = CLCircularRegion(
-//            center: startLocation.coordinate,
-//            radius: ourRadius,
-//            identifier: ourString)
-//            
-//        return fence
-//        }
-//
-//    func startMonitoring(for ourFence:() -> CLCircularRegion){
-//        
-//        print (ourFence)
-//        
-//    }
-//}
