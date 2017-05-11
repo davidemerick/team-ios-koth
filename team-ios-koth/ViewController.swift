@@ -17,8 +17,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // setup locationManager
         locationManager = CLLocationManager()
         locationManager?.delegate = self
+        locationManager?.distanceFilter = kCLLocationAccuracyNearestTenMeters
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
         
         locationManager?.requestWhenInUseAuthorization()
@@ -34,23 +36,40 @@ class ViewController: UIViewController {
 
 extension ViewController: CLLocationManagerDelegate {
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if startLocation == nil {
-            startLocation = locations.first
-        } else {
-            guard let latest = locations.first else { return }
-            let distanceInMeters = startLocation?.distance(from: latest)
-            print("distance in meters: \(String(describing: distanceInMeters!))")
+    func setupData() {
+        if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self){
+            let title = "Lorrenzillo's"
+            let coordinate = CLLocationCoordinate2DMake(37.703026, -121.759735)
+            let regionRadius = 300.0
+            
+            let region = CLCircularRegion(
+                center: CLLocationCoordinate2D(latitude: coordinate.latitude,longitude: coordinate.longitude),radius: regionRadius, identifier: title)
+            locationManager?.startMonitoring(for: region)
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedAlways || status == .authorizedWhenInUse {
-            locationManager?.startUpdatingLocation()
-            locationManager?.allowsBackgroundLocationUpdates = true
-        }
+    func startMonitoring(for region: CLRegion){
+        print ("")
     }
     
+    
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        if startLocation == nil {
+//            startLocation = locations.first
+//        } else {
+//            guard let latest = locations.first else { return }
+//            let distanceInMeters = startLocation?.distance(from: latest)
+//            print("distance in meters: \(String(describing: distanceInMeters!))")
+//        }
+//    }
+//    
+//     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+//        if status == .authorizedAlways || status == .authorizedWhenInUse {
+//            locationManager?.startUpdatingLocation()
+//            locationManager?.allowsBackgroundLocationUpdates = true
+//        }
+//    }
+//    
 }
 
 
