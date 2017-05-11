@@ -193,6 +193,7 @@
 				TargetAttributes = {
 					83B397051EC4DB2000EE22D5 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = RVX28FPJ5M;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -419,6 +420,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RVX28FPJ5M;
 				INFOPLIST_FILE = "team-ios-koth/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dmke.team-ios-koth";
@@ -431,6 +433,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RVX28FPJ5M;
 				INFOPLIST_FILE = "team-ios-koth/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dmke.team-ios-koth";
