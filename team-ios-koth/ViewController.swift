@@ -1,10 +1,9 @@
 //
 //  ViewController.swift
 //  team-ios-koth
-//  Dan Chu is here
 //
-//  Created by DE, DG on 5/11/17.
-//  Copyright © 2017 DE. All rights reserved.
+//  Created by DC, DE, DG on 5/11/17.
+//  Copyright © 2017. All rights reserved.
 //
 
 import UIKit
