@@ -194,6 +194,11 @@
 					83B397051EC4DB2000EE22D5 = {
 						CreatedOnToolsVersion = 8.3.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					83B397191EC4DB2000EE22D5 = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -507,6 +512,7 @@
 				83B397301EC4DB2000EE22D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		83B397311EC4DB2000EE22D5 /* Build configuration list for PBXNativeTarget "team-ios-kothTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +521,7 @@
 				83B397331EC4DB2000EE22D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		83B397341EC4DB2000EE22D5 /* Build configuration list for PBXNativeTarget "team-ios-kothUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +530,7 @@
 				83B397361EC4DB2000EE22D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
