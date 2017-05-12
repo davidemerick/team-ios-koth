@@ -29,13 +29,13 @@ class ViewController: UIViewController {
     var startLocation: CLLocation?
     var userLoc: CLLocationCoordinate2D?
     var treasureFence: CLCircularRegion?
-    
+    var treasureFenceLoc: CLLocation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("View loaded")
         setupLocationManager()
-        testFenceSpawn()
+//        testFenceSpawn()
         //spawnTreasureFence()
         setupMapView()
         startHeading()

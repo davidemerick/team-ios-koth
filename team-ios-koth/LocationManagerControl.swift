@@ -35,11 +35,11 @@ extension ViewController: CLLocationManagerDelegate {
             }
             
             //let userLoc = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            let treasureFenceLoc = CLLocation(
+            treasureFenceLoc = CLLocation.init(
                 // hard code: San Fran
-                latitude: ((37.7749) + ((latPosNegToggle!)*(drand48()/100))),
-                longitude: ((122.4194) + ((longPosNegToggle!)*drand48()/100)))
-            let treasureFence = createFence(spawnLoc: treasureFenceLoc, newRadius: 1000.00, fenceID: "treasure")
+                latitude: ((userLoc!.latitude) + ((latPosNegToggle!)*(drand48()/100))),
+                longitude: ((userLoc!.longitude) + ((longPosNegToggle!)*drand48()/100)))
+            let treasureFence = createFence(spawnLoc: treasureFenceLoc!, newRadius: 1000.00, fenceID: "treasure")
             print(treasureFence)
             addRadiusOverlay(treasureFence: treasureFence)
             
