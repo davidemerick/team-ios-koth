@@ -36,7 +36,8 @@ extension ViewController: CLLocationManagerDelegate {
         treasureFenceLoc = CLLocation.init(
             latitude: ((userLoc!.latitude) + ((latPosNegToggle!)*(drand48()/100))),
             longitude: ((userLoc!.longitude) + ((longPosNegToggle!)*drand48()/100)))
-        let treasureFence = createFence(spawnLoc: treasureFenceLoc!, newRadius: 1000.00, fenceID: "treasure")
+        let treasureFence = createFence(spawnLoc: treasureFenceLoc!, newRadius: 10000.00, fenceID: "treasure")
+        locationManager?.startMonitoring(for: treasureFence)
         print(treasureFence)
         addRadiusOverlay(treasureFence: treasureFence)
         
@@ -84,9 +85,8 @@ extension ViewController: CLLocationManagerDelegate {
     // delegate method invoked when the location manager has heading data
     // cannot test: iOS simulator does not do heading
     func locationManager(_ manager: CLLocationManager,
-                         didUpdateHeading newHeading: CLHeading){
-//        print (newHeading.trueHeading)
-        print (newHeading.magneticHeading)
+        didUpdateHeading newHeading: CLHeading){
+        print (newHeading.trueHeading)
         
     }
     
