@@ -27,12 +27,16 @@ extension ViewController: MKMapViewDelegate {
         guard let location = locations.last as CLLocation? else { return }
         
         // centers map on user
-        let userCenter = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        let userLoc = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         // zooms in to map
         let zoomMe = MKCoordinateSpanMake(0.050, 0.050)
         // defines mapkit region
-        let region = MKCoordinateRegion(center: userCenter, span: zoomMe)
+        let region = MKCoordinateRegion(center: userLoc, span: zoomMe)
         // sets mapkit region
         testMap.setRegion(region, animated: true)
+    }
+    
+    func addRadiusOverlay(treasureFence: CLCircularRegion) {
+        testMap?.add(MKCircle(center: treasureFence.center, radius: treasureFence.radius))
     }
 }
