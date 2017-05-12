@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
 // Get user location
 // Create fence with user location
@@ -15,6 +16,9 @@ import CoreLocation
 
 // access to UIViewController methods
 class ViewController: UIViewController {
+    
+    
+    @IBOutlet weak var testMap: MKMapView!
     
     var locationManager: CLLocationManager?
     var startLocation: CLLocation?
@@ -25,6 +29,11 @@ class ViewController: UIViewController {
         print("View loaded")
         setupLocationManager()
         testFenceSpawn()
+        setupMapView()
+        // iffy testy code
+        DispatchQueue.main.async {
+            self.locationManager?.startUpdatingLocation()
+        }
         
         
         
@@ -37,6 +46,26 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+}
+
+extension ViewController: MKMapViewDelegate {
+    func setupMapView(){
+        testMap.delegate = self
+        testMap.showsUserLocation = true
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last as CLLocation? else { return }
+        
+        let userCenter = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        // Does not have to be userCenter, could replace latitude: and longitude: with any value you would like to center in on
+        let span = MKCoordinateSpanMake(0.050, 0.050)
+        
+        let region = MKCoordinateRegion(center: userCenter, span: span)
+        
+        testMap.setRegion(region, animated: true)
+        
+    }
 }
 
 // access to CLLocationManagerDelegate methods
