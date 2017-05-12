@@ -25,13 +25,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             if currentLocation?.altitude != nil{
                 
                 testLabel.text = String(currentLocation!.altitude)
-                let numberOfPlaces:Double = 4.0
-                let powerOfTen:Double = pow(10.0, numberOfPlaces)
-                let decimals:Double = round((currentLocation!.altitude.truncatingRemainder(dividingBy: 1.0)) * powerOfTen) / powerOfTen
+                let color = currentLocation!.altitude / 100
                 
                 
-                
-                testLabel.backgroundColor = UIColor.init(colorLiteralRed: Float(decimals), green: 0.5, blue: 0.5, alpha: 0.5)
+                testLabel.backgroundColor = UIColor.init(colorLiteralRed: Float(color), green: 0.2, blue: 0.2, alpha: 0.7)
                 
                 
             }
