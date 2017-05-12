@@ -14,6 +14,7 @@
 		83B397141EC4DB2000EE22D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83B397121EC4DB2000EE22D5 /* LaunchScreen.storyboard */; };
 		83B3971F1EC4DB2000EE22D5 /* team_ios_kothTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B3971E1EC4DB2000EE22D5 /* team_ios_kothTests.swift */; };
 		83B3972A1EC4DB2000EE22D5 /* team_ios_kothUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B397291EC4DB2000EE22D5 /* team_ios_kothUITests.swift */; };
+		83B397381EC59FB900EE22D5 /* TestLocations.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 83B397371EC59FB900EE22D5 /* TestLocations.gpx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		83B397251EC4DB2000EE22D5 /* team-ios-kothUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "team-ios-kothUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83B397291EC4DB2000EE22D5 /* team_ios_kothUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = team_ios_kothUITests.swift; sourceTree = "<group>"; };
 		83B3972B1EC4DB2000EE22D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83B397371EC59FB900EE22D5 /* TestLocations.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = TestLocations.gpx; path = "../../../test-folder/Geotify-Starter/Geotify/TestLocations.gpx"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				83B3970D1EC4DB2000EE22D5 /* Main.storyboard */,
 				83B397101EC4DB2000EE22D5 /* Assets.xcassets */,
 				83B397121EC4DB2000EE22D5 /* LaunchScreen.storyboard */,
+				83B397371EC59FB900EE22D5 /* TestLocations.gpx */,
 				83B397151EC4DB2000EE22D5 /* Info.plist */,
 			);
 			path = "team-ios-koth";
@@ -240,6 +243,7 @@
 			files = (
 				83B397141EC4DB2000EE22D5 /* LaunchScreen.storyboard in Resources */,
 				83B397111EC4DB2000EE22D5 /* Assets.xcassets in Resources */,
+				83B397381EC59FB900EE22D5 /* TestLocations.gpx in Resources */,
 				83B3970F1EC4DB2000EE22D5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

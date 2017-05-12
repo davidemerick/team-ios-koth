@@ -22,8 +22,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("View loaded")
         setupLocationManager()
+        testFenceSpawn()
+        
         
         
         // location manager set up
@@ -40,6 +42,38 @@ class ViewController: UIViewController {
 // access to CLLocationManagerDelegate methods
 extension ViewController: CLLocationManagerDelegate {
     
+    func startHeading(){
+        // Checks if heading data is vailable on device
+        if CLLocationManager.headingAvailable(){
+            
+            // locationManager starts receiving heading data
+            locationManager?.startUpdatingHeading()
+            
+            // notifies locationManager of all movements
+            locationManager?.headingFilter = kCLHeadingFilterNone
+        }
+    }
+    
+    // delegate method invoked when the location manager has heading data
+    func locationManager(_ manager: CLLocationManager,
+                         didUpdateHeading newHeading: CLHeading){
+        print (newHeading.x)
+        print (newHeading.y)
+        print (newHeading.z)
+        print (newHeading.trueHeading)
+        print (newHeading.magneticHeading)
+        
+    }
+    
+    func testFenceSpawn(){
+          //<wpt lat="37.331695" lon="-122.0322801">
+        let myFenceLoc = CLLocation.init(latitude: 37.331695, longitude: -122.0322801)
+        
+        let fenceToTest = createFence(startLocation: myFenceLoc, newRadius: 1000.0, fenceID: "testFence")
+        locationManager?.startMonitoring(for: fenceToTest)
+        print(fenceToTest)
+    }
+    
     /*
      
      */
@@ -47,6 +81,7 @@ extension ViewController: CLLocationManagerDelegate {
 
         // create instance of CLLocationManager
         locationManager = CLLocationManager()
+        
         
         // view controller can now receive the relevant delegate method calls
         locationManager?.delegate = self
@@ -81,8 +116,20 @@ extension ViewController: CLLocationManagerDelegate {
             identifier: fenceID)
         // registers region in 'monitoredRegions' property
         locationManager?.startMonitoring(for: fence)
+        fence.notifyOnEntry = true
+        fence.notifyOnExit = true
         return fence
     }
+    
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion){
+        print("entered fence")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion){
+        print("exited fence")
+    }
+    
+    
     
     func checkIfInFence(fenceToCheck: CLCircularRegion) {
         
@@ -163,4 +210,53 @@ extension ViewController: CLLocationManagerDelegate {
 //        print (ourFence)
 //        
 //    }
+//}
+
+
+
+//import UIKit
+//import CoreLocation
+//
+//class ViewController: UIViewController {
+//    
+//    var locationManager: CLLocationManager?
+//    var startLocation: CLLocation?
+//    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        
+//        locationManager = CLLocationManager()
+//        locationManager?.delegate = self
+//        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+//        
+//        locationManager?.requestWhenInUseAuthorization()
+//    }
+//    
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//        // Dispose of any resources that can be recreated.
+//    }
+//    
+//}
+//
+//
+//extension ViewController: CLLocationManagerDelegate {
+//    
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        if startLocation == nil {
+//            startLocation = locations.first
+//        } else {
+//            guard let latest = locations.first else { return }
+//            let distanceInMeters = startLocation?.distance(from: latest)
+//            print("distance in meters: \(String(describing: distanceInMeters!))")
+//        }
+//    }
+//    
+//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+//        if status == .authorizedAlways || status == .authorizedWhenInUse {
+//            locationManager?.startUpdatingLocation()
+//            locationManager?.allowsBackgroundLocationUpdates = true
+//        }
+//    }
+//    
 //}
