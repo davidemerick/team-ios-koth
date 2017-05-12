@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
@@ -38,6 +39,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("View loaded")
+        setupLocationManager()
+        testFenceSpawn()
+        //spawnTreasureFence()
+        setupMapView()
+        startHeading()
+        // iffy testy code
+        DispatchQueue.main.async {
+            self.locationManager?.startUpdatingLocation()
+        }
         
         
         locationManager.delegate = self
@@ -50,6 +61,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    @IBAction func spawnTreasure(_ sender: UIButton) {
+        spawnTreasureFence()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
