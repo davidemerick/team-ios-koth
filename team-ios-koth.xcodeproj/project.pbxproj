@@ -15,6 +15,8 @@
 		83B3971F1EC4DB2000EE22D5 /* team_ios_kothTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B3971E1EC4DB2000EE22D5 /* team_ios_kothTests.swift */; };
 		83B3972A1EC4DB2000EE22D5 /* team_ios_kothUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B397291EC4DB2000EE22D5 /* team_ios_kothUITests.swift */; };
 		83B397381EC59FB900EE22D5 /* TestLocations.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 83B397371EC59FB900EE22D5 /* TestLocations.gpx */; };
+		83B3973C1EC5C0AD00EE22D5 /* MapKitControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B3973B1EC5C0AD00EE22D5 /* MapKitControl.swift */; };
+		83B3973E1EC5C1EF00EE22D5 /* LocationManagerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B3973D1EC5C1EF00EE22D5 /* LocationManagerControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		83B397291EC4DB2000EE22D5 /* team_ios_kothUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = team_ios_kothUITests.swift; sourceTree = "<group>"; };
 		83B3972B1EC4DB2000EE22D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83B397371EC59FB900EE22D5 /* TestLocations.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = TestLocations.gpx; path = "../../../test-folder/Geotify-Starter/Geotify/TestLocations.gpx"; sourceTree = "<group>"; };
+		83B3973B1EC5C0AD00EE22D5 /* MapKitControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapKitControl.swift; sourceTree = "<group>"; };
+		83B3973D1EC5C1EF00EE22D5 /* LocationManagerControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManagerControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +104,9 @@
 			isa = PBXGroup;
 			children = (
 				83B397091EC4DB2000EE22D5 /* AppDelegate.swift */,
+				83B3973B1EC5C0AD00EE22D5 /* MapKitControl.swift */,
 				83B3970B1EC4DB2000EE22D5 /* ViewController.swift */,
+				83B3973D1EC5C1EF00EE22D5 /* LocationManagerControl.swift */,
 				83B3970D1EC4DB2000EE22D5 /* Main.storyboard */,
 				83B397101EC4DB2000EE22D5 /* Assets.xcassets */,
 				83B397121EC4DB2000EE22D5 /* LaunchScreen.storyboard */,
@@ -269,7 +275,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83B3973E1EC5C1EF00EE22D5 /* LocationManagerControl.swift in Sources */,
 				83B3970C1EC4DB2000EE22D5 /* ViewController.swift in Sources */,
+				83B3973C1EC5C0AD00EE22D5 /* MapKitControl.swift in Sources */,
 				83B3970A1EC4DB2000EE22D5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
