@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 import CoreLocation
 
 class ViewController: UIViewController {
@@ -18,7 +19,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // setup locationManager
-        setupData()
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.distanceFilter = kCLLocationAccuracyNearestTenMeters
@@ -27,8 +27,8 @@ class ViewController: UIViewController {
         locationManager?.requestWhenInUseAuthorization()
         
         //test setupData
-        setupData()
-        //location manager set up
+        createFence()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
 
 extension ViewController: CLLocationManagerDelegate {
     
-    func setupData() {
+    func createFence() {
         if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self){
             let title = "Lorrenzillo's"
             let coordinate = CLLocationCoordinate2DMake(37.703026, -121.759735)
@@ -55,17 +55,38 @@ extension ViewController: CLLocationManagerDelegate {
         }
     }
     
-    
-    func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState,for region: CLRegion) {
-        if state == .inside {
-            print ("inside")
-        }
-        else if state == .outside {
-            print ("outside")
-        }
-        else if state == .unknown {
-            print("Unknown state for geofence")
-            return
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        if region is CLCircularRegion {
+            print ("enter")
         }
     }
+    
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        if region is CLCircularRegion {
+            print ("exit")
+        }
+    }
+
+
+    
+//    func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState,for region: CLRegion) {
+//        if state == .inside {
+//            print ("inside")
+//        }
+//        else if state == .outside {
+//            print ("outside")
+//        }
+//        else if state == .unknown {
+//            print("Unknown state for geofence")
+//            return
+//        }
+//    }
+    
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        locationManager?.requestState(for: region)
+//    }
+}
+
+extension ViewController: MKMapViewDelegate {
+    
 }
