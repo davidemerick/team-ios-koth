@@ -5,32 +5,46 @@
 //  Created by DC, DE, DG on 5/11/17.
 //  Copyright © 2017. All rights reserved.
 //
-
 import UIKit
-import MapKit
 import CoreLocation
+import MapKit
 
+// Get user location
+// Create fence with user location
+// Check for user inside or outside of fence
+
+// Get user location
+// Spawn fence
+// Check compass direction
+// Compare compass with fence
+// Display needed direction for user
+// access to UIViewController methods
 class ViewController: UIViewController {
     
+    @IBOutlet weak var TPMap: MKMapView!
     var locationManager: CLLocationManager?
     var startLocation: CLLocation?
+    var userLoc: CLLocationCoordinate2D?
+    var treasureFence: CLCircularRegion?
+    var treasureFenceLoc: CLLocation?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // setup locationManager
-        locationManager = CLLocationManager()
-        locationManager?.delegate = self
-        locationManager?.distanceFilter = kCLLocationAccuracyNearestTenMeters
-        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+        setupLocationManager()
+        setupMapView()
+        startHeading()
         
-        locationManager?.requestWhenInUseAuthorization()
-        
-        //test setupData
-        createFence()
+        DispatchQueue.main.async {
+            self.locationManager?.startUpdatingLocation()
+        }
         
     }
     
+    @IBAction func spawnTreasure(_ sender: UIButton) {
+        spawnTreasureFence()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -38,55 +52,3 @@ class ViewController: UIViewController {
     
 }
 
-
-extension ViewController: CLLocationManagerDelegate {
-    
-    func createFence() {
-        if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self){
-            let title = "Lorrenzillo's"
-            let coordinate = CLLocationCoordinate2DMake(37.703026, -121.759735)
-            let regionRadius = 300.0
-            
-            let region = CLCircularRegion(
-                center: CLLocationCoordinate2D(latitude: coordinate.latitude,longitude: coordinate.longitude),radius: regionRadius, identifier: title)
-            locationManager?.startMonitoring(for: region)
-            print(region)
-            
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        if region is CLCircularRegion {
-            print ("enter")
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
-        if region is CLCircularRegion {
-            print ("exit")
-        }
-    }
-
-
-    
-//    func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState,for region: CLRegion) {
-//        if state == .inside {
-//            print ("inside")
-//        }
-//        else if state == .outside {
-//            print ("outside")
-//        }
-//        else if state == .unknown {
-//            print("Unknown state for geofence")
-//            return
-//        }
-//    }
-    
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        locationManager?.requestState(for: region)
-//    }
-}
-
-extension ViewController: MKMapViewDelegate {
-    
-}
