@@ -14,6 +14,7 @@
 		83B397141EC4DB2000EE22D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83B397121EC4DB2000EE22D5 /* LaunchScreen.storyboard */; };
 		83B3971F1EC4DB2000EE22D5 /* team_ios_kothTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B3971E1EC4DB2000EE22D5 /* team_ios_kothTests.swift */; };
 		83B3972A1EC4DB2000EE22D5 /* team_ios_kothUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B397291EC4DB2000EE22D5 /* team_ios_kothUITests.swift */; };
+		C16DDECE1EC55E300062DA04 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C16DDECD1EC55E300062DA04 /* CoreLocation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		83B397251EC4DB2000EE22D5 /* team-ios-kothUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "team-ios-kothUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83B397291EC4DB2000EE22D5 /* team_ios_kothUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = team_ios_kothUITests.swift; sourceTree = "<group>"; };
 		83B3972B1EC4DB2000EE22D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C16DDECD1EC55E300062DA04 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C16DDECE1EC55E300062DA04 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +84,7 @@
 				83B3971D1EC4DB2000EE22D5 /* team-ios-kothTests */,
 				83B397281EC4DB2000EE22D5 /* team-ios-kothUITests */,
 				83B397071EC4DB2000EE22D5 /* Products */,
+				C16DDECC1EC55E300062DA04 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,6 +127,14 @@
 				83B3972B1EC4DB2000EE22D5 /* Info.plist */,
 			);
 			path = "team-ios-kothUITests";
+			sourceTree = "<group>";
+		};
+		C16DDECC1EC55E300062DA04 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C16DDECD1EC55E300062DA04 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

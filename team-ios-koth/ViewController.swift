@@ -9,26 +9,48 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController {
+
+class ViewController: UIViewController, CLLocationManagerDelegate {
+    @IBOutlet weak var floorLabel: UILabel!
+    @IBOutlet weak var testLabel: UILabel!
     
-    var locationManager: CLLocationManager?
-    var startLocation: CLLocation?
     
+    var locationManager: CLLocationManager = CLLocationManager()
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if locations.first != nil {
+            
+            let currentLocation = locations.first
+            
+            if currentLocation?.altitude != nil{
+                
+                testLabel.text = String(currentLocation!.altitude)
+                let numberOfPlaces:Double = 4.0
+                let powerOfTen:Double = pow(10.0, numberOfPlaces)
+                let decimals:Double = round((currentLocation!.altitude.truncatingRemainder(dividingBy: 1.0)) * powerOfTen) / powerOfTen
+                
+                
+                
+                testLabel.backgroundColor = UIColor.init(colorLiteralRed: Float(decimals), green: 0.5, blue: 0.5, alpha: 0.5)
+                
+                
+            }
+            
+        }
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // setup locationManager
-        setupData()
-        locationManager = CLLocationManager()
-        locationManager?.delegate = self
-        locationManager?.distanceFilter = kCLLocationAccuracyNearestTenMeters
-        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
         
-        locationManager?.requestWhenInUseAuthorization()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
-        //test setupData
-        setupData()
-        //location manager set up
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,33 +61,4 @@ class ViewController: UIViewController {
 }
 
 
-extension ViewController: CLLocationManagerDelegate {
-    
-    func setupData() {
-        if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self){
-            let title = "Lorrenzillo's"
-            let coordinate = CLLocationCoordinate2DMake(37.703026, -121.759735)
-            let regionRadius = 300.0
-            
-            let region = CLCircularRegion(
-                center: CLLocationCoordinate2D(latitude: coordinate.latitude,longitude: coordinate.longitude),radius: regionRadius, identifier: title)
-            locationManager?.startMonitoring(for: region)
-            print(region)
-            
-        }
-    }
-    
-    
-    func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState,for region: CLRegion) {
-        if state == .inside {
-            print ("inside")
-        }
-        else if state == .outside {
-            print ("outside")
-        }
-        else if state == .unknown {
-            print("Unknown state for geofence")
-            return
-        }
-    }
-}
+
