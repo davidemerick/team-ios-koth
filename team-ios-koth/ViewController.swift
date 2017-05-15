@@ -8,11 +8,14 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
 class ViewController: UIViewController {
     
     var locationManager: CLLocationManager?
     var startLocation: CLLocation?
+    var userLoc: CLLocationCoordinate2D?
+    var treasureFence: CLCircularRegion?
     
     override func viewDidLoad() {
         super.viewDidLoad()
